@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Zadejte čísla oddělená čárkou (např. 1,2,3,4,5):");
+let numbers = input.split(",").map(Number);
+let sum = 0;
+
+for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+}
+
+console.log("Součet je: " + sum);
+
+    </script>
+ 
+    
+</body>
+</html>
