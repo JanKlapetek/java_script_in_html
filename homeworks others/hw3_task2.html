@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greatest common divisor</title>
+</head>
+<body>
+    <script>
+        function gcd(a, b) {
+    let R;
+    while ((a % b) > 0) {
+        R = a % b;
+        a = b;
+        b = R;
+    }
+    return b;
+}
+
+// Get user input
+const num1 = parseFloat(prompt("Enter the first number:"));
+const num2 = parseFloat(prompt("Enter the second number:"));
+
+// Calculate and display the GCD
+const result = gcd(num1, num2);
+console.log(`The greatest common divisor of ${num1} and ${num2} is ${result}.`);
+
+
+    </script>
+
+</body>
+</html>
