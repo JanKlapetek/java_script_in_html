@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How old R U</title>
+</head>
+<body>
+<script>
+// Prompt the user for their birth year
+const birthYear = prompt("Please enter your birth year (YYYY):");
+
+// Get the current year
+const currentYear = new Date().getFullYear();
+
+// Calculate the age
+const age = currentYear - parseInt(birthYear);
+
+// Display the result
+alert(`You are approximately ${age} years old.`);
+
+</script>
+
+</body>
+</html>
