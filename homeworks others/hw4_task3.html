@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combine digits</title>
+</head>
+<body>
+    <script>
+        function combineDigits() {
+    // Získáme hodnoty od uživatele
+    const digit1 = parseInt(prompt("Zadejte první číslici:"));
+    const digit2 = parseInt(prompt("Zadejte druhou číslici:"));
+    const digit3 = parseInt(prompt("Zadejte třetí číslici:"));
+
+    // Kombinujeme jednotlivé číslice do jednoho čísla
+    const combinedNumber = parseInt(`${digit1}${digit2}${digit3}`);
+    return combinedNumber;
+}
+
+// Zavoláme funkci a vypíšeme výsledek
+const result = combineDigits();
+console.log(`Kombinované číslo: ${result}`);
+
+    </script>
+
+</body>
+</html>
