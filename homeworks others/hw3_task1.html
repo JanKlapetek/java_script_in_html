@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate the sum</title>
+</head>
+<body>
+    <script>
+        function calculateSumInRange(start, end) {
+    let sum = 0;
+    for (let i = start; i <= end; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+// Example usage:
+const userStart = parseInt(prompt("Enter the start value:"));
+const userEnd = parseInt(prompt("Enter the end value:"));
+const result = calculateSumInRange(userStart, userEnd);
+console.log(`The sum of numbers from ${userStart} to ${userEnd} is: ${result}`);
+
+
+    </script>
+
+</body>
+</html>
