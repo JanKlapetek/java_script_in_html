@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three digit</title>
+</head>
+<body>
+    <script>
+        // Ask the user for input
+const userInput = prompt("Please enter a three-digit number:");
+
+// Check if the input is valid (three digits)
+if (userInput.length !== 3 || isNaN(userInput)) {
+  console.log("Invalid input. Please enter a valid three-digit number.");
+} else {
+  // Extract individual digits
+  const hundreds = parseInt(userInput[0]);
+  const tens = parseInt(userInput[1]);
+  const ones = parseInt(userInput[2]);
+
+  // Check if all digits are equal
+  if (hundreds === tens && tens === ones) {
+    console.log("The number contains equal digits.");
+  } else {
+    console.log("The number does not contain equal digits.");
+  }
+}
+    </script>
+
+</body>
+</html>
