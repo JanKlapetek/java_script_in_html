@@ -8,6 +8,11 @@
       height: 150px;
       background-color: rgb(58, 6, 6);
     }
+    #myDiv2 {
+      width: 200px;
+      height: 200px;
+      background-color: rgb(6, 182, 241);
+    }
   </style>
 </head>
 <body>
@@ -41,7 +46,11 @@
   div.addEventListener('mouseout', function() {
     div.style.backgroundColor = 'lightgray';
   });
-</script>
 
+  button.addEventListener('mouseover', function() {
+    alert('Vjel si myší na button');
+  });
+  
+</script>
 </body>
 </html>
