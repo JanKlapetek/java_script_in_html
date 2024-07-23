@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <title>JavaScript</title>
+</head>
+<body>
+    <script>
+        // Vytvoření pole studentů
+let studenti = [];
+
+// Funkce pro přidání studenta
+function pridatStudenta(jmeno, vek) {
+    studenti.push({ jmeno: jmeno, vek: vek });
+}
+
+// Funkce pro zobrazení všech studentů
+function zobrazitStudenty() {
+    studenti.forEach((student, index) => {
+        console.log(`Student ${index + 1}: Jméno: ${student.jmeno}, Věk: ${student.vek}`);
+    });
+}
+
+// Funkce pro odstranění studenta podle jména
+function odstranitStudenta(jmeno) {
+    studenti = studenti.filter(student => student.jmeno !== jmeno);
+}
+
+// Funkce pro určení průměrného věku studentů
+function prumernyVek() {
+    if (studenti.length === 0) return 0;
+    let celkovyVek = studenti.reduce((sum, student) => sum + student.vek, 0);
+    return celkovyVek / studenti.length;
+}
+
+// Příklad použití
+pridatStudenta("Jan", 20);
+pridatStudenta("Eva", 22);
+pridatStudenta("Petr", 19);
+pridatStudenta('Pavel', 25);
+
+console.log("Seznam studentů:");
+zobrazitStudenty();
+
+console.log("Průměrný věk studentů je:", prumernyVek());
+
+odstranitStudenta("Eva");
+
+console.log("Seznam studentů po odstranění Evy:");
+zobrazitStudenty();
+
+console.log("Průměrný věk studentů po odstranění Evy:", prumernyVek());
+
+    </script>
+</body>
+</html>
