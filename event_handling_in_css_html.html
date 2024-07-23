@@ -29,10 +29,18 @@
     <p ondblclick="alert('DIV have been clicked on double click')">Zde klikni dvakrát</p>
     -->
     <div id="nazev"></div>
+    <!--
     <script>
-        nazev.onclick = function() {
+  nazev.onclick = function() {
             alert('div byl kliknut')
         }
+    
+    </script>
+    -->
+    <script>
+        nazev.addEventListener("click", function() {
+            alert('DIV byl kliknut')
+        })
     </script>
 
 </body>
