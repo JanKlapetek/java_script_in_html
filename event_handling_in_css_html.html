@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Handling</title>
+    <style>
+        div {
+            background: rgb(5, 243, 192);
+            height: 100px;
+            width: 150px;
+            text-align: center;
+        }
+
+        p {
+            background: yellowgreen;
+            height: 100px;
+            width: 150px;
+            text-decoration: solid;
+            text-decoration-color: azure;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+    <div onclick="alert('DIV have been clicked')">Zde klikni jednou</div>
+    <p ondblclick="alert('DIV have been clicked on double click')">Zde klikni dvakrát</p>
+    -->
+    <div id="nazev"></div>
+    <script>
+        nazev.onclick = function() {
+            alert('div byl kliknut')
+        }
+    </script>
+
+</body>
+</html>
