@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling Example</title>
+  <style>
+    #myDiv {
+      width: 150px;
+      height: 150px;
+      background-color: rgb(58, 6, 6);
+    }
+  </style>
+</head>
+<body>
+
+<button id="myButton">Klikni na mě</button>
+<input type="text" id="myInput" placeholder="Zadej text">
+<div id="myDiv"></div>
+
+<script>
+  // Vybereme elementy podle jejich ID
+  let button = document.getElementById('myButton');
+  let input = document.getElementById('myInput');
+  let div = document.getElementById('myDiv');
+
+  // Připojíme event handler pro kliknutí na tlačítko
+  button.addEventListener('click', function() {
+    alert('Tlačítko bylo kliknuto!');
+  });
+
+  // Připojíme event handler pro změnu vstupního pole
+  input.addEventListener('input', function() {
+    console.log('Vstupní pole bylo změněno na: ' + input.value);
+  });
+
+  // Připojíme event handler pro najetí myší na div
+  div.addEventListener('mouseover', function() {
+    div.style.backgroundColor = 'yellow';
+  });
+
+  // Připojíme event handler pro odjetí myší z divu
+  div.addEventListener('mouseout', function() {
+    div.style.backgroundColor = 'lightgray';
+  });
+</script>
+
+</body>
+</html>

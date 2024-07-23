@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling Example</title>
+  <style>
+    #myDiv {
+      width: 150px;
+      height: 150px;
+      background-color: rgb(58, 6, 6);
+    }
+  </style>
+</head>
+<body>
+<div id="myDiv"></div>
+<script>
+  let div = document.getElementById('myDiv');
+  div.addEventListener('mouseover', function() {
+    div.style.backgroundColor = 'yellow';
+  });
+  div.addEventListener('mouseout', function() {
+    div.style.backgroundColor = 'lightgray';
+  });
+</script>
+</body>
+</html>
+
