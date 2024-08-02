@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Name Input</title>
+    <style>
+input {
+    border: 2px solid;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 0.25rem;
+    min-width: 125px;
+    padding: 0.5rem;
+    transition: background-color 0.5s ease-out;
+    background-color: #f5f5f5; 
+    color: #021bfa; 
+}
+
+input:optional {
+    border-color: gray;
+}
+
+input:required {
+    border-color: black;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+input:hover,
+input:active {
+    background-color: #e0e0e0; 
+}
+
+input::placeholder {
+    color: #03fc18; 
+}
+
+
+    </style>
+</head>
+<body>
+    <label for="username">Enter your name:</label>
+    <input type="text" id="username" oninput="filterDigits(event)">
+    <script>
+        function filterDigits(event) {
+            const input = event.target;
+            const filteredValue = input.value.replace(/\d/g, ''); // Remove digits
+            input.value = filteredValue;
+        }
+    </script>
+</body>
+</html>
