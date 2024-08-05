@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Example</title>
+</head>
+<body>
+    <h1>BOM (Browser Object Model) Ukázka</h1>
+    <button id="showWindowSize">Zobraz velikost okna</button>
+    <div id="output"></div>
+
+    <script>
+        // Funkce 
+        function showWindowSize() {
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let widthO = window.outerWidth;
+            let heightO = window.outerHeight;
+            let output = document.getElementById('output');
+            document.innerHTML = 'Šířka okna: ' + width + 'px<br>Výška okna: ' + height + 'px <br> Vnejsi šířka okna: ' + 
+            widthO + 'px<br>Vnejsi výška okna: ' + heightO + 'px';
+        }
+
+        // event listener
+        document.getElementById('showWindowSize').addEventListener('click', showWindowSize);
+
+        // aktualizace
+        window.addEventListener('resize', showWindowSize);
+    </script>
+</body>
+</html>

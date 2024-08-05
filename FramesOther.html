@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSFD a CestujLevne v Iframe</title>
+    <style>
+        iframe {
+            width: 48%;
+            height: 600px;
+            border: 1px solid black;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSFD a CestujLevne v Iframe</h1>
+    <div class="container">
+        <iframe id="csfdFrame" src="https://www.maps.google.com" name="csfdFrame" allowfullscreen="" loading="lazy"></iframe>
+        <iframe id="cestujlevneFrame" src="https://www.cestujlevne.com" name="cestujlevneFrame" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <button onclick="reloadCsfdFrame()">Reload CSFD Frame</button>
+    <button onclick="reloadCestujlevneFrame()">Reload CestujLevne Frame</button>
+
+    <script>
+        function reloadCsfdFrame() {
+            frames['csfdFrame'].location.reload();
+        }
+
+        function reloadCestujlevneFrame() {
+            frames['cestujlevneFrame'].location.reload();
+        }
+    </script>
+</body>
+</html>

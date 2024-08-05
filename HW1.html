@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Bar Example</title>
+    <style>
+        .slider {
+            width: 300px;
+            height: 10px;
+            background: #ddd;
+            position: relative;
+        }
+        .pointer {
+            width: 20px;
+            height: 20px;
+            background: blue;
+            position: absolute;
+            top: -5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task 1</h1>
+    <p>Create an html page with track bar. Allow the user to change the position of the blue pointer.</p>
+    <div class="slider" id="slider">
+        <div class="pointer" id="pointer"></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const pointer = document.getElementById('pointer');
+
+        slider.addEventListener('click', function(event) {
+            const rect = slider.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            pointer.style.left = Math.min(Math.max(0, offsetX - pointer.offsetWidth / 2), slider.offsetWidth - pointer.offsetWidth) + 'px';
+        });
+
+        pointer.addEventListener('mousedown', function(event) {
+            const onMouseMove = function(event) {
+                const rect = slider.getBoundingClientRect();
+                const offsetX = event.clientX - rect.left;
+                pointer.style.left = Math.min(Math.max(0, offsetX - pointer.offsetWidth / 2), slider.offsetWidth - pointer.offsetWidth) + 'px';
+            };
+
+            document.addEventListener('mousemove', onMouseMove);
+
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', onMouseMove);
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>

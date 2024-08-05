@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location and History Example</title>
+    <style>
+        button {
+            margin: 5px;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Object Location a History Vlastnosti Ukázka</h1>
+    <button id="showLocationProperties">Zobraz Location vlastnosti</button>
+    <button id="reloadPage">Reload Stránky</button>
+    <button id="navigateBack">Jdi Zpět</button>
+    <button id="navigateForward">Jdi Dopředu</button>
+    <button id="showHistoryLength">Zobraz Délku Historie</button>
+
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('showLocationProperties').addEventListener('click', function() {
+            var output = document.getElementById('output');
+            var locationProperties = `
+                Href: ${location.href}<br>
+                Protokol: ${location.protocol}<br>
+                Host: ${location.host}<br>
+                Hostname: ${location.hostname}<br>
+                Port: ${location.port}<br>
+                Pathname: ${location.pathname}<br>
+                Search: ${location.search}<br>
+                Hash: ${location.hash}<br>
+            `;
+            output.innerHTML = locationProperties;
+        });
+
+        document.getElementById('reloadPage').addEventListener('click', function() {
+            location.reload();
+        });
+
+        document.getElementById('navigateBack').addEventListener('click', function() {
+            history.back();
+        });
+
+        document.getElementById('navigateForward').addEventListener('click', function() {
+            history.forward();
+        });
+
+        document.getElementById('showHistoryLength').addEventListener('click', function() {
+            var output = document.getElementById('output');
+            output.innerHTML = 'Délka historie: ' + history.length;
+        });
+
+     </script>
+</body>
+</html>

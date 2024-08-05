@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM Methods Example</title>
+    <style>
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BOM (Browser Object Model) Metody Ukázka</h1>
+    <button id="openWindow">Otevřít okno</button>
+    <button id="closeWindow">Zavřít okno</button>
+    <!-- <button id="moveWindow">Přesunout okno</button>
+    <button id="resizeWindow">Změnit velikost okna</button> -->
+    
+    <script>
+        let newWindow;
+
+        // open
+        document.getElementById('openWindow').addEventListener('click', function() {
+            newWindow = window.open('https://www.example.com', 'myWindow', 'resizable');
+        });
+
+        // close
+        document.getElementById('closeWindow').addEventListener('click', function() {
+            if (newWindow) {
+                newWindow.close();
+            }
+        });
+        // move
+        document.getElementById('moveWindow').addEventListener('click', function() {
+            if (newWindow && !newWindow.closed) {
+                newWindow.moveTo(50, 200);
+                newWindow.focus();  
+            } else {
+                alert('Okno není otevřeno.');
+            }
+        });
+
+        // resize
+        document.getElementById('resizeWindow').addEventListener('click', function() {
+            if (newWindow && !newWindow.closed) {
+                newWindow.resizeTo(1500, 500);
+                newWindow.focus();  
+            } else {
+                alert('Okno není otevřeno.');
+            }
+        });
+    </script>
+</body>
+</html>

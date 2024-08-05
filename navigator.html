@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator Methods Example</title>
+    <style>
+        button {
+            margin: 5px;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Navigator Metody Ukázka</h1>
+    <button id="getUserAgent">Zobraz User Agent</button>
+    <button id="getPlatform">Zobraz Platformu</button>
+    <button id="getLanguage">Zobraz Jazyk</button>
+    <button id="checkOnlineStatus">Zkontroluj Status Online</button>
+    <button id="getGeolocation">Získej Geolokaci</button>
+    
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('getUserAgent').addEventListener('click', function() {
+            var userAgent = navigator.userAgent;
+            document.getElementById('output').innerText = 'User Agent: ' + userAgent;
+        });
+
+        document.getElementById('getPlatform').addEventListener('click', function() {
+            var platform = navigator.platform;
+            document.getElementById('output').innerText = 'Platforma: ' + platform;
+        });
+
+        document.getElementById('getLanguage').addEventListener('click', function() {
+            var language = navigator.language;
+            document.getElementById('output').innerText = 'Jazyk: ' + language;
+        });
+
+        document.getElementById('checkOnlineStatus').addEventListener('click', function() {
+            var onlineStatus = navigator.onLine ? 'Online' : 'Offline';
+            document.getElementById('output').innerText = 'Status: ' + onlineStatus;
+        });
+
+        document.getElementById('getGeolocation').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    document.getElementById('output').innerText = 'Geolokace: Šířka ' + latitude + ', Délka ' + longitude;
+                }, function(error) {
+                    document.getElementById('output').innerText = 'Nepodařilo se získat geolokaci: ' + error.message;
+                });
+            } else {
+                document.getElementById('output').innerText = 'Geolokace není podporována tímto prohlížečem.';
+            }
+        });
+    </script>
+</body>
+</html>
