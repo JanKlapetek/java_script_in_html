@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>First form</title>
+</head>
+<body>
+    <h2>Let's search something</h2>
+        <form method='GET'>
+            <input type="text" placeholder="Napis cokoli" name="text"/>
+            <input type='submit' value='Send'>
+            <label for="inputText">Text:</label>
+            <input type="text" id="inputText" name="inputText">
+            <input type="checkbox" name="subscribe" value="newsletter">
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+            <button type="submit">Poslat</button>
+        </form>
+        <form method="GET">
+            <select name="country">
+                <option value="cz">Czechia</option>
+                <option value="sk">Slovakia</option>
+                <option value="en">England</option>
+                <option value="de">Germany</option>
+            </select>
+            <button type="submit">Poslat country</button>
+        </form>
+</body>
+</html>
