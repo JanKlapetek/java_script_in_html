@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Příklad s cookies</title>
+</head>
+<body>
+    <h1>Práce s cookies v JavaScriptu</h1>
+    <button onclick="setCookie('uzivatel', 'Jan', 7)">Nastavit cookie</button>
+    <button onclick="alert(getCookie('uzivatel'))">Získat cookie</button>
+    <button onclick="deleteCookie('uzivatel')">Smazat cookie</button>
+
+    <script>
+        // Funkce pro nastavení cookie
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days*24*60*60*1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Funkce pro získání hodnoty cookie
+        function getCookie(name) {
+            let cname = name + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) == 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // Funkce pro smazání cookie
+        function deleteCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+        document.cookie = "registered=User; expires = Thu, 14 Feb 2019 08:12:40 GMT; path = /";
+        document.cookie = "organization=Step; expires = Thu, 14 Feb 2019 08:12:40 GMT; path = /";
+        window.out.innerHTML = document.cookie;
+    </script>
+</body>
+</html>
