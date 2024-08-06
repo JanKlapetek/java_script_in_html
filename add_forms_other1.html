@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulář s dynamickými poli</title>
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulář s dynamickými poli</h1>
+    <form id="dynamicForm">
+        <div class="form-group">
+            <label for="inputText1">Text 1:</label>
+            <input type="text" id="inputText1" name="inputText1">
+        </div>
+        <div class="form-group">
+            <label for="inputText2">Text 2:</label>
+            <input type="text" id="inputText2" name="inputText2">
+        </div>
+        <button type="button" onclick="addTextField()">Přidat textové pole</button>
+        <button type="submit">Poslat</button>
+    </form>
+    <script>
+        let fieldCounter = 3;
+        function addTextField() {
+            const form = document.getElementById('dynamicForm');
+            const newField = document.createElement('div');
+            newField.className = 'form-group';
+            newField.innerHTML = `<label for="inputText${fieldCounter}">Text ${fieldCounter}:</label>
+                                  <input type="text" id="inputText${fieldCounter}" name="inputText${fieldCounter}">`;
+            form.insertBefore(newField, form.children[form.children.length - 2]);
+            fieldCounter++;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

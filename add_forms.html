@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>First form</title>
+</head>
+<body>
+    <form method='GET'>
+        <b>Jméno</b>
+        <input type="text" placeholder="Zadejte jméno" name="name" /><br/><br/>
+        <input type="submit" value="Uložit"/>
+        <input type="button" value="Ještě jedno číslo" onclick="add_click()" style="margin-left:50px"/>
+        <br/><br/>
+        Telefonní číslo
+        <input type="text" name="phone" id="ph" placeholder="Zadejte telefonní číslo" />
+        Typ telefonu
+        <select name="type">
+            <option value="1" selected>Mobilní</option>
+            <option value="2">Domácí</option>
+            <option value="3">Pracovní</option>
+        </select>
+        Priorita
+        <input type="radio" name="main" value="1" checked />
+    </form>
+    <script>
+        function add_click(){
+            if (typeof phoneCounter == 'undefined')
+                phoneCounter = 1;
+            phoneCounter++;
+            var f = document.forms[0];
+            var b = document.createElement('br');
+            f.appendChild(b);
+            var t = document.createTextNode('Telefonní číslo');
+            f.appendChild(t);
+            var phoneInput = document.createElement('input');
+            phoneInput.type = 'text';
+            phoneInput.name = 'phone' + phoneCounter;
+            phoneInput.placeholder = 'Zadejte telefonní číslo';
+            f.appendChild(phoneInput);
+            var t2 = document.createTextNode(' Typ telefonu ');
+            f.appendChild(t2);
+            var selector = f.elements['type'];
+            var newSelector = selector.cloneNode(true);
+            console.log(newSelector);
+            newSelector.name = 'type' + phoneCounter;
+            f.appendChild(newSelector);
+            var t3 = document.createTextNode(' Priorita ');
+            f.appendChild(t3);
+            var mainRadio = document.createElement('input');
+            mainRadio.type = 'radio';
+            mainRadio.name = 'main';
+            mainRadio.value = phoneCounter;
+            f.appendChild(mainRadio);
+        }
+    </script>
+</body>
+</html>
