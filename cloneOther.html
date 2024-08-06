@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulář s klonovanými poli</title>
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulář s klonovanými poli</h1>
+    <form id="cloneForm" action="" method="get">
+        <div class="form-group" id="inputGroup">
+            <label for="inputText1">Text 1:</label>
+            <input type="text" id="inputText1" name="inputText1">
+        </div>
+        <button type="button" onclick="cloneTextField()">Klonovat textové pole</button>
+        <button type="submit">Poslat</button>
+    </form>
+
+    
+    <script>
+        let fieldCounter = 2;
+
+        function cloneTextField() {
+            const originalField = document.getElementById('inputGroup');
+            const clonedField = originalField.cloneNode(true);
+            
+            const newLabel = clonedField.querySelector('label');
+            const newInput = clonedField.querySelector('input');
+
+            newLabel.setAttribute('for', 'inputText' + fieldCounter);
+            newLabel.textContent = 'Text ' + fieldCounter + ':';
+            newInput.setAttribute('id', 'inputText' + fieldCounter);
+            newInput.setAttribute('name', 'inputText' + fieldCounter);
+            newInput.value = '';
+
+            const form = document.getElementById('cloneForm');
+            form.insertBefore(clonedField, form.children[form.children.length - 2]);
+            
+            fieldCounter++;
+        }
+
+        // Po načtení stránky přidat dynamicky pole, která byla poslána při odeslání formuláře
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            for (const [key, value] of params.entries()) {
+                if (key.startsWith('inputText') && key !== 'inputText1') {
+                    cloneTextField();
+                    document.getElementById(key).value = value;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
