@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validace formuláře pomocí JavaScriptu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+<h1>Validace formuláře pomocí JavaScriptu</h1>
+<form id="myForm">
+    <label for="username">Uživatelské jméno:</label>
+    <input type="text" id="username" name="username" required>
+    <div id="usernameError" class="error"></div>
+    <label for="age">Věk:</label>
+    <input type="number" id="age" name="age" required>
+    <div id="ageError" class="error"></div>
+    <label for="country">Země:</label>
+    <select id="country" name="country" required>
+        <option value="">Vyberte zemi</option>
+        <option value="CZ">Česká republika</option>
+        <option value="SK">Slovensko</option>
+    </select>
+    <div id="countryError" class="error"></div>
+    <label for="terms">Souhlasím s podmínkami:</label>
+    <input type="checkbox" id="terms" name="terms" required>
+    <div id="termsError" class="error"></div>
+    <input type="submit" value="Odeslat">
+</form>
+<script>
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    // Inicializace proměnných pro chybové zprávy
+    let usernameError = document.getElementById('usernameError');
+    let ageError = document.getElementById('ageError');
+    let countryError = document.getElementById('countryError');
+    let termsError = document.getElementById('termsError');
+    // Reset chybových zpráv
+    usernameError.textContent = '';
+    ageError.textContent = '';
+    countryError.textContent = '';
+    termsError.textContent = '';
+    let username = document.getElementById('username').value;
+    let age = document.getElementById('age').value;
+    let country = document.getElementById('country').value;
+    let terms = document.getElementById('terms').checked;
+    let valid = true;
+    // Kontrola prázdných polí
+    if (username === '') {
+        usernameError.textContent = 'Uživatelské jméno je povinné.';
+        valid = false;
+    }
+    // Kontrola délky textu
+    if (username.length < 5 || username.length > 15) {
+        usernameError.textContent = 'Uživatelské jméno musí mít 5 až 15 znaků.';
+        valid = false;
+    }
+    // Kontrola numerických hodnot
+    if (age === '') {
+        ageError.textContent = 'Věk je povinný.';
+        valid = false;
+    } else if (age < 18 || age > 99) {
+        ageError.textContent = 'Věk musí být mezi 18 a 99 lety.';
+        valid = false;
+    }
+    // Kontrola výběrových polí
+    if (country === '') {
+        countryError.textContent = 'Vyberte zemi.';
+        valid = false;
+    }
+    // checkbox
+    if (!terms) {
+        termsError.textContent = 'Musíte souhlasit s podmínkami.';
+        valid = false;
+    }
+    // Zabráni v odeslání formuláře
+    if (!valid) {
+        event.preventDefault();
+    }
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
