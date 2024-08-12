@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible Tree View</title>
+    <style>
+        /* Basic styles for the tree */
+        ul.tree, ul.tree ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        ul.tree ul {
+            display: none;
+        }
+
+        ul.tree li {
+            cursor: pointer;
+        }
+
+        /* Hover effect */
+        ul.tree li:hover {
+            font-weight: bold;
+        }
+
+        /* Styles for the checkbox */
+        ul.tree input[type="checkbox"] {
+            display: none;
+        }
+
+        ul.tree input[type="checkbox"] + label::before {
+            content: "▶";
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        ul.tree input[type="checkbox"]:checked + label::before {
+            content: "▼";
+        }
+
+        ul.tree input[type="checkbox"]:checked ~ ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul class="tree">
+        <li>
+            <input type="checkbox" id="item-1">
+            <label for="item-1">Item 1</label>
+            <ul>
+                <li>Subitem 1.1</li>
+                <li>Subitem 1.2</li>
+            </ul>
+        </li>
+        <li>
+            <input type="checkbox" id="item-2">
+            <label for="item-2">Item 2</label>
+            <ul>
+                <li>Subitem 2.1</li>
+                <li>Subitem 2.2</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
