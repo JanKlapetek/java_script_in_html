@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collapsible Tree View</title>
+    <title>Collapsible Tree View - Fotbal</title>
     <style>
         /* Basic styles for the tree */
         ul.tree, ul.tree ul {
@@ -17,11 +17,19 @@
 
         ul.tree li {
             cursor: pointer;
+            position: relative;
         }
 
         /* Hover effect */
-        ul.tree li:hover {
+        ul.tree li:hover > label {
             font-weight: bold;
+        }
+
+        ul.tree li:hover > label::before {
+            content: "•"; /* Change to "■" for a square */
+            position: absolute;
+            left: -15px;
+            font-size: 1.2em;
         }
 
         /* Styles for the checkbox */
@@ -48,18 +56,36 @@
     <ul class="tree">
         <li>
             <input type="checkbox" id="item-1">
-            <label for="item-1">Item 1</label>
+            <label for="item-1">Fotbalové týmy</label>
             <ul>
-                <li>Subitem 1.1</li>
-                <li>Subitem 1.2</li>
+                <li>Real Madrid</li>
+                <li>Manchester United</li>
+                <li>
+                    <input type="checkbox" id="item-1-3">
+                    <label for="item-1-3">FC Barcelona</label>
+                    <ul>
+                        <li>Hráči</li>
+                        <li>Historie</li>
+                    </ul>
+                </li>
+                <li>
+                    <input type="checkbox" id="item-1-4">
+                    <label for="item-1-4">SFC Opava</label>
+                    <ul>
+                        <li><a href="http://sfc.cz/">Hráči</a></li>
+                        <li>Historie</li>
+                        <li>Stadion</li>
+                    </ul>
+                </li>
             </ul>
         </li>
         <li>
             <input type="checkbox" id="item-2">
-            <label for="item-2">Item 2</label>
+            <label for="item-2">Fotbalové ligy</label>
             <ul>
-                <li>Subitem 2.1</li>
-                <li>Subitem 2.2</li>
+                <li>Premier League</li>
+                <li>La Liga</li>
+                <li>Serie A</li>
             </ul>
         </li>
     </ul>
